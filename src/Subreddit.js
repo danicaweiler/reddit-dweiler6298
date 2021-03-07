@@ -1,7 +1,21 @@
+/*
+* FILE : Subreddit.js
+* PROJECT : Frontend- AWF
+* PROGRAMMER : Dania Weiler
+* FIRST VERSION : 2021-03-06
+* DESCRIPTION : Handle the subreddit component 
+*/
+
 import React from 'react';
 
 export default class SubReddit extends React.Component {
     
+    //
+    // FUNCTION : constructor
+    // DESCRIPTION : class contrustor for subreddit component
+    // PARAMETERS : props
+    // RETURNS : none
+    // 
     constructor(props) {
         super(props);
         this.state = {items: []};
@@ -9,9 +23,40 @@ export default class SubReddit extends React.Component {
         this.favourite = this.favourite.bind(this);
     }
         
+    //
+    // FUNCTION : handleSubmit
+    // DESCRIPTION : Get the value from the input and search
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     handleSubmit() {
-        const subRed = document.getElementById('sub').value
-        var url = 'https://www.reddit.com/r/' + subRed + '/hot.json?limit=10'
+        var subRed = document.getElementById('sub').value
+        this.doSubmit(subRed);
+    }
+
+    //
+    // FUNCTION : doSubmit
+    // DESCRIPTION : Retrieve posts from reddit
+    // PARAMETERS : subred - the search value
+    // RETURNS : none
+    //
+    doSubmit(subRed) {
+        var subReddit;
+        if (subRed === undefined || subRed === "") {
+            subReddit = localStorage.getItem('search');
+        } else {
+            subReddit = subRed
+        }
+
+        if (subReddit === undefined || 
+            subReddit === null || 
+            subReddit === "undefined" || 
+            subReddit === "null") {
+            // !== not working properly
+            }
+            else {
+        var url = 'https://www.reddit.com/r/' + subReddit + '/hot.json?limit=10'
+        
         fetch(url)
         .then(function(res) {
             return res.json();   // Convert the data into JSON
@@ -21,36 +66,68 @@ export default class SubReddit extends React.Component {
             this.setState({
                 isLoaded: true,
                 items: result.data.children
-            });          
+            }); 
+            
+            localStorage.setItem('search', subReddit)         
         })
         .catch(
             (err) => {
             console.log(err);   // Log error if any
         });
     }
-      
+}
+
+    //
+    // FUNCTION : componentDidMount
+    // DESCRIPTION : mount actions to set state and form
+    // PARAMETERS : none
+    // RETURNS : none
+    //      
     componentDidMount() {
         this.SubReddit();
+        this.doSubmit();
     }
 
+    //
+    // FUNCTION : SubReddit
+    // DESCRIPTION : set loading state
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     SubReddit() {
         this.setState({
             isLoaded: true
         });  
     }
 
-    favourite(id) {
-        console.log("This was favourited: " + id)   
+    //
+    // FUNCTION : favourite
+    // DESCRIPTION : do actions to favourite a post
+    // PARAMETERS : id - id to favourite
+    // RETURNS : none
+    //
+    favourite(id) { 
         var data = JSON.parse(localStorage.getItem('favourites'))
         if (data != null) {
             data.push(id)
         } else {
-            data = [id]
+            //Only save if its not there already
+            var index = 0;
+            if (data !== null) {
+                index = data.indexOf(id);
+            } 
+            if (index !== -1) data = [id]
         }
         localStorage.setItem('favourites', JSON.stringify(data))
         window.location.reload();
     }
   
+    //
+    // FUNCTION : render
+    // DESCRIPTION : get the html to render
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     render() {
     const { error, isLoaded, items } = this.state;
     if (error) {

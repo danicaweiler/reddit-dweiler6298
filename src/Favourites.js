@@ -1,6 +1,20 @@
+/*
+* FILE : Favourite.js
+* PROJECT : Frontend- AWF
+* PROGRAMMER : Dania Weiler
+* FIRST VERSION : 2021-03-06
+* DESCRIPTION : Handle the favourite component 
+*/
+
 import React from 'react';
 
 export default class Favourites extends React.Component {
+    //
+    // FUNCTION : constructor
+    // DESCRIPTION :construct the Favourites component
+    // PARAMETERS : props
+    // RETURNS : none
+    //
     constructor(props) {
         super(props);
 
@@ -8,6 +22,12 @@ export default class Favourites extends React.Component {
         this.state = { items: [] }
     }
 
+    //
+    // FUNCTION : componentDidMount
+    // DESCRIPTION : handle inital state render
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     componentDidMount() {
         let data = JSON.parse(localStorage.getItem('favourites'))
         if (data != null) {
@@ -35,9 +55,21 @@ export default class Favourites extends React.Component {
         }
     }
 
+    //
+    // FUNCTION : Favourites
+    // DESCRIPTION : Placeholder so itll build
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     Favourites() {
     }
 
+    //
+    // FUNCTION : Render
+    // DESCRIPTION : handle getting what to render
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     render() {
         const { items } = this.state;
         if (items != null && items.length > 0) {
@@ -46,12 +78,24 @@ export default class Favourites extends React.Component {
         return this.NoFavourites();
     }
 
+    //
+    // FUNCTION : NoFavourites
+    // DESCRIPTION : html for no favourites
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     NoFavourites() {
         return (
-            <div key="emptyFav"></div>
+            <div key="emptyFav"><h1>Favourites</h1><p>None</p></div>
         );
     }
 
+    //
+    // FUNCTION : WitFavourites
+    // DESCRIPTION : html for with favourites
+    // PARAMETERS : none
+    // RETURNS : none
+    //
     WithFavourites(props) {
         const { items } = this.state;
         return (<div key="hasFavs"><h1>Favourites</h1>
@@ -69,6 +113,12 @@ export default class Favourites extends React.Component {
         );
     }
 
+    //
+    // FUNCTION : remove
+    // DESCRIPTION : remove item from favourite
+    // PARAMETERS : item - id
+    // RETURNS : none
+    //
     remove(item) {
         console.log("Remove: " + item)
         var data = JSON.parse(localStorage.getItem('favourites'))
@@ -78,10 +128,8 @@ export default class Favourites extends React.Component {
                 data.splice(index, 1);
             }
 
-                    
         localStorage.setItem('favourites', JSON.stringify(data))
         window.location.reload();
         }
-
     }
 }
