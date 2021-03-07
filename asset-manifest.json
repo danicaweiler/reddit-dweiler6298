@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/reddit-dweiler6298/static/css/main.71353a29.chunk.css",
+    "main.js": "/reddit-dweiler6298/static/js/main.220d815f.chunk.js",
+    "main.js.map": "/reddit-dweiler6298/static/js/main.220d815f.chunk.js.map",
+    "runtime-main.js": "/reddit-dweiler6298/static/js/runtime-main.f007bc96.js",
+    "runtime-main.js.map": "/reddit-dweiler6298/static/js/runtime-main.f007bc96.js.map",
+    "static/js/2.4e4bd169.chunk.js": "/reddit-dweiler6298/static/js/2.4e4bd169.chunk.js",
+    "static/js/2.4e4bd169.chunk.js.map": "/reddit-dweiler6298/static/js/2.4e4bd169.chunk.js.map",
+    "static/js/3.2058778e.chunk.js": "/reddit-dweiler6298/static/js/3.2058778e.chunk.js",
+    "static/js/3.2058778e.chunk.js.map": "/reddit-dweiler6298/static/js/3.2058778e.chunk.js.map",
+    "index.html": "/reddit-dweiler6298/index.html",
+    "static/css/main.71353a29.chunk.css.map": "/reddit-dweiler6298/static/css/main.71353a29.chunk.css.map",
+    "static/js/2.4e4bd169.chunk.js.LICENSE.txt": "/reddit-dweiler6298/static/js/2.4e4bd169.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f007bc96.js",
+    "static/js/2.4e4bd169.chunk.js",
+    "static/css/main.71353a29.chunk.css",
+    "static/js/main.220d815f.chunk.js"
+  ]
+}
