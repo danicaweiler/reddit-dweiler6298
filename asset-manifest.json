@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/reddit-dweiler6298/static/css/main.71353a29.chunk.css",
-    "main.js": "/reddit-dweiler6298/static/js/main.fc56e256.chunk.js",
-    "main.js.map": "/reddit-dweiler6298/static/js/main.fc56e256.chunk.js.map",
+    "main.js": "/reddit-dweiler6298/static/js/main.f765692a.chunk.js",
+    "main.js.map": "/reddit-dweiler6298/static/js/main.f765692a.chunk.js.map",
     "runtime-main.js": "/reddit-dweiler6298/static/js/runtime-main.f007bc96.js",
     "runtime-main.js.map": "/reddit-dweiler6298/static/js/runtime-main.f007bc96.js.map",
     "static/js/2.4e4bd169.chunk.js": "/reddit-dweiler6298/static/js/2.4e4bd169.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f007bc96.js",
     "static/js/2.4e4bd169.chunk.js",
     "static/css/main.71353a29.chunk.css",
-    "static/js/main.fc56e256.chunk.js"
+    "static/js/main.f765692a.chunk.js"
   ]
 }
